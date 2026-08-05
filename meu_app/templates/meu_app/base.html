@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Meu Site{% endblock %}</title>
+</head>
+<body>
+    <header><h1>Meu Projeto de Livros</h1></header>
+    <main>
+        {% block content %}
+        <!-- O conteúdo das outras páginas entrará aqui -->
+        {% endblock %}
+    </main>
+</body>
+</html>
