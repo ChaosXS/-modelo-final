@@ -4,7 +4,6 @@ from meu_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/', views.post_view, name='post_view'), 
-    # Adicione a linha abaixo para resolver o erro 404 da imagem
-    path('', views.index, name='index'), 
+    path('posts/', views.post_view, name='post_view'), # O Django vai procurar o post_view aqui
+    path('', views.index, name='index'), # Adicione esta linha para a sua página inicial de templates
 ]

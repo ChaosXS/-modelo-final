@@ -1,6 +1,18 @@
 {% extends 'meu_app/base.html' %}
 
 {% block content %}
-<h2>Bem-vindo à minha Livraria!</h2>
-<p>Esta é a página inicial construída com templates Django.</p>
+    <h2>Livros Publicados</h2>
+    
+    {% if livros %}
+        <ul>
+        {% for livro in livros %}
+            <li>
+                <strong>{{ livro.titulo }}</strong> - {{ livro.autor }}
+                <p>Status: {{ livro.status }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum livro publicado ainda.</p>
+    {% endif %}
 {% endblock %}

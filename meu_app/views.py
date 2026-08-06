@@ -1,11 +1,16 @@
 from django.shortcuts import render
+from django.http import HttpResponse 
+from .models import Livro  # IMPORTANTE: Você precisa importar o modelo Livro
 
-# Esta é a nova view para a página inicial que usa os templates do exercício
-def index(request):
-    return render(request, 'meu_app/index.html')
-
-# Sua view antiga (pode mantê-la ou removê-la)
+# Mantém a view que o seu urls.py está chamando para evitar erros
 def post_view(request):
-    from django.http import HttpResponse
     return HttpResponse("Hello World")
+
+# Esta versão da função index resolve o problema apontado pelo tutor Samir
+def index(request):
+    # Busca todos os livros cadastrados no Django Admin
+    livros = Livro.objects.all() 
+    
+    # Envia a variável 'livros' para o seu index.html
+    return render(request, 'meu_app/index.html', {'livros': livros})
     
