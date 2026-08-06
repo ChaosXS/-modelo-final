@@ -1,18 +1,29 @@
 {% extends 'meu_app/base.html' %}
 
 {% block content %}
-    <h2>Livros Publicados</h2>
-    
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4">Livros Publicados</h2>
+    </div>
     {% if livros %}
-        <ul>
         {% for livro in livros %}
-            <li>
-                <strong>{{ livro.titulo }}</strong> - {{ livro.autor }}
-                <p>Status: {{ livro.status }}</p>
-            </li>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ livro.titulo }}</h5>
+                    <p class="card-text"><strong>Autor:</strong> {{ livro.autor }}</p>
+                    <p class="card-text"><strong>Ano:</strong> {{ livro.ano_publicacao }}</p>
+                    <span class="badge {% if livro.status == 'publicado' %}bg-success{% else %}bg-warning{% endif %}">
+                        {{ livro.status|title }}
+                    </span>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-        </ul>
     {% else %}
-        <p>Nenhum livro publicado ainda.</p>
+        <div class="col-12">
+            <div class="alert alert-info">Nenhum livro encontrado no sistema.</div>
+        </div>
     {% endif %}
+</div>
 {% endblock %}
