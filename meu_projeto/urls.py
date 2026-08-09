@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path
-from meu_app import views 
+from meu_app import views  # Importa as views do seu app
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/', views.post_view, name='post_view'), # O Django vai procurar o post_view aqui
-    path('', views.index, name='index'), # Adicione esta linha para a sua página inicial de templates
+    path('posts/', views.post_view, name='post_view'),
+    path('async-calc/', views.async_calc_view, name='async_calc'),
 ]
